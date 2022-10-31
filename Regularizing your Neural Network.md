@@ -7,15 +7,15 @@ $$\min\limits_{w,b}J(w,b)$$
 $J(w,b)=\frac{1}{m}\Sigma^{m}_{i=1}L({\hat y}^{(i)},y^{(i)})$
 >**J**:Cost function  **L**:Loss function
 
-$J(w,b)=\frac{1}{m}\Sigma^{m}_{i=1}L({\hat y}^{(i)},y^{(i)})+\frac{\lambda}{2m}||w||_{2}^{2}$
->$\frac{\lambda}{2m}||w||_{2}^{2}$: 正则项, $L_2$ regularization
+$J(w,b)=\frac{1}{m}\Sigma^{m}_{i=1}L({\hat y}^{(i)},y^{(i)})+\frac{\lambda}{2m}\parallel w\parallel_{2}^{2}$
+>$\frac{\lambda}{2m}\parallel w\parallel_{2}^{2}$: 正则项, $L_2$ regularization
 
 >$\lambda$:Regularization
 
 ## How about neural network?
 $$\min_{w^{[1]},b^{[1]},\dots,w^{[L]},b^{[L]}}J(w^{[1]},b^{[1]},\cdots,w^{[L]},b^{[L]})$$
-$J(w^{[1]},b^{[1]},\cdots,w^{[L]},b^{[L]})=\frac{1}{m}\Sigma^{m}_{i=1}L({\hat y}^{(i)},y^{(i)})+\frac{\lambda}{2m}\Sigma^{L}_{l=1}||w^{[l]}||_{F}^{2}$
->$||w^{[l]}||_{F}^{2}$:Frobenius norm (actually equals to 2-norm)
+$J(w^{[1]},b^{[1]},\cdots,w^{[L]},b^{[L]})=\frac{1}{m}\Sigma^{m}_{i=1}L({\hat y}^{(i)},y^{(i)})+\frac{\lambda}{2m}\Sigma^{L}_{l=1}\parallel w^{[l]}\parallel_{F}^{2}$
+>$\parallel w^{[l]}\parallel_{F}^{2}$:Frobenius norm (actually equals to 2-norm)
 
 >$L_2$ regularization is also called "weight decay"
 
@@ -68,9 +68,10 @@ eg.在Image Classification里，你可以将图片水平翻转，让数据量翻
 ## Early stopping
 在gradient descent时，画一个training error（or cost function）的曲线，再画一个dev set error的曲线。
 <img src='picture/early_stopping.png' height=300>
+
 当你刚开始在神经网络上迭代时，你的参数w会接近于0，因为通过随机初始化(random initialization)，很可能你给w的初始值是一个较小值，因此在训练足够长时间前，w仍然很小，然后随着你继续迭代训练，w越来越大，直到这里，可能你的神经网络就有一个很大的参数w了。所以early stopping做的是：通过停在半路，你能得到一个不大不小的w值。
 
-Orthogonalization:s
+Orthogonalization:
 * Optimize cost function $J$:
    * Gradien descent, Momentum,RMSProp, Adam......
 * Not overfitting:
