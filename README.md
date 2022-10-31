@@ -1,2 +1,2 @@
-# Andrew-Ng-Deep-Learning-notes-
-Andrew Ng Deep Learning notes（吴恩达深度学习课程笔记）
+# Andrew-Ng-Deep-Learning-notes（吴恩达深度学习课程笔记）
+Updating continuously...
